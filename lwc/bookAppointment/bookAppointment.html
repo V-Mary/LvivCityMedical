@@ -1,0 +1,47 @@
+<template>
+
+    <lightning-card title="Make appointment" icon-name="standard:user">
+
+        <div class="slds-m-around_medium">
+            <template if:true={specializationPicklist.data}>
+                <lightning-combobox
+                        name="Specialization"
+                        label="Specialization"
+                        value={value}
+                        options={specializationPicklist.data.values}
+                        onchange={handleChange}>
+                </lightning-combobox>
+            </template>
+        </div>
+
+        <div class="slds-m-around_medium">
+            <lightning-combobox
+                    name="Doctors"
+                    label="Doctor"
+                    value={doctor}
+                    onchange={handleDoctors}
+                    options={recordOptions}>
+            </lightning-combobox>
+        </div>
+
+        <div  class="slds-m-around_medium">
+            <lightning-input type="date" name="input1" label="Enter a date"  value={day} onchange={handleDays}></lightning-input>
+        </div>
+
+        <div class="slds-m-around_medium">
+            <lightning-combobox
+                    name="Time"
+                    label="Time"
+                    value={hour}
+                    onchange={handleHours}
+                    options={hourOptions}>
+            </lightning-combobox>
+        </div>
+
+        <lightning-button label="Make appointment" title="Primary action" onclick={makeAppointment}
+                                      class="slds-m-left_x-small"></lightning-button>
+
+
+    </lightning-card>
+
+</template>
